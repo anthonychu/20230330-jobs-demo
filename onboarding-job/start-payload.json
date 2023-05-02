@@ -1,0 +1,31 @@
+{
+  "template": {
+    "containers": [
+      {
+        "image": "jobseastus2euap.azurecr.io/contoso-onboard:1",
+        "name": "contoso-onboard",
+        "resources": {
+          "cpu": 0.25,
+          "ephemeralStorage": "1Gi",
+          "memory": "0.5Gi"
+        },
+        "env": [
+          {
+            "name": "CUSTOMER_NAME",
+            "value": "Tailwind Traders"
+          },
+          {
+            "name": "API_BASE_URL",
+            "value": "http://contoso-frontendd"
+          }
+        ],
+        "command": [
+          "/bin/sh",
+          "-c",
+          "echo \"$(CUSTOMER_NAME)\""
+        ]
+      }
+    ],
+    "initContainers": null
+  }
+}
